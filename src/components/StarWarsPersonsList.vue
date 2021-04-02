@@ -23,7 +23,7 @@ import { mapGetters } from "vuex";
 import { GET_STAR_WARS_PERSONS } from "../store/getters/types";
 
 export default {
-  name: "StarWarsPeopleList",
+  name: "StarWarsPersonsList",
   components: {
     List,
     ListItem,

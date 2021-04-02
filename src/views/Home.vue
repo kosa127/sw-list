@@ -1,12 +1,12 @@
 <template>
-  <star-wars-people-list />
+  <star-wars-persons-list />
 </template>
 
 <script>
-import StarWarsPeopleList from "../components/StarWarsPeopleList";
+import StarWarsPersonsList from "../components/StarWarsPersonsList";
 
 export default {
   name: "Home",
-  components: { StarWarsPeopleList },
+  components: { StarWarsPersonsList },
 };
 </script>

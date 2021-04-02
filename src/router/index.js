@@ -6,8 +6,14 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: () => import("../views/Home.vue"),
+    component: () => import("../layouts/CenteredLayout"),
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: () => import("../views/Home"),
+      },
+    ],
   },
 ];
 

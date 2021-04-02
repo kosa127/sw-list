@@ -12,4 +12,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.centered-layout-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background-image: url("/background.jpg");
+  background-size: cover;
+
+  .layout-body-container {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 70px;
+    margin: auto;
+    border-radius: 50px;
+  }
+}
+</style>

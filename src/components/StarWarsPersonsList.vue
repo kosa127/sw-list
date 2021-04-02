@@ -19,8 +19,9 @@
 <script>
 import ListItem from "./List/ListItem";
 import List from "./List/List";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { GET_STAR_WARS_PERSONS } from "../store/getters/types";
+import { FETCH_STAR_WARS_PERSONS } from "../store/actions/types";
 
 export default {
   name: "StarWarsPersonsList",
@@ -28,9 +29,21 @@ export default {
     List,
     ListItem,
   },
+  created() {
+    try {
+      this.fetchPersons(100);
+    } catch (e) {
+      console.error(e);
+    }
+  },
   computed: {
     ...mapGetters({
       people: GET_STAR_WARS_PERSONS,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchPersons: FETCH_STAR_WARS_PERSONS,
     }),
   },
 };

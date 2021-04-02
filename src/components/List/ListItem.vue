@@ -1,6 +1,17 @@
 <template>
   <div class="list-item-container">
-    <slot />
+    <div class="prepend-slot-container" v-if="$slots.prepend">
+      <slot name="prepend" />
+    </div>
+
+    <!-- default slot should always be main content -->
+    <div class="content-slot-container">
+      <slot />
+    </div>
+
+    <div class="append-slot-container" v-if="$slots.append">
+      <slot name="append" />
+    </div>
   </div>
 </template>
 

@@ -1,0 +1,17 @@
+
+$width: 8px;
+$height: 8px;
+
+::-webkit-scrollbar {
+  width: $width;
+  height: $height;
+  border-radius: 9px;
+  background-color: rgba(60, 60, 60, .3);
+}
+
+::-webkit-scrollbar-thumb {
+  width: $width;
+  height: $height;
+  border-radius: 5px;
+  background-color: rgba(60, 60, 60, 1);
+}

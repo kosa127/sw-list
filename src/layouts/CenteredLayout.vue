@@ -22,6 +22,7 @@ export default {
   background-size: cover;
 
   .layout-body-container {
+    max-height: 75vh;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 70px;
     margin: auto;

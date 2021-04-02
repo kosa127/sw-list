@@ -13,5 +13,7 @@ export default {
 <style lang="scss" scoped>
 .list-container {
   max-width: 800px;
+  max-height: 100%;
+  overflow-y: scroll;
 }
 </style>

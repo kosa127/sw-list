@@ -20,6 +20,7 @@
 import ListItem from "./List/ListItem";
 import List from "./List/List";
 import { mapGetters } from "vuex";
+import { GET_STAR_WARS_PERSONS } from "../store/getters/types";
 
 export default {
   name: "StarWarsPeopleList",
@@ -29,7 +30,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      people: "getStarWarsPeople",
+      people: GET_STAR_WARS_PERSONS,
     }),
   },
 };

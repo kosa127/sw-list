@@ -1,5 +1,5 @@
 <template>
-  <list>
+  <list class="star-wars-persons-list">
     <list-item v-for="(person, idx) in people" :key="person.name">
       <template slot="prepend">
         {{ idx }}
@@ -9,9 +9,9 @@
         {{ person.eye_color }}
       </template>
 
-      <span :style="{ color: person.eye_color || 'black' }">
+      <div :style="{ color: person.eye_color || 'black' }">
         {{ person.name }}
-      </span>
+      </div>
     </list-item>
   </list>
 </template>
@@ -31,7 +31,7 @@ export default {
   },
   created() {
     try {
-      this.fetchPersons(100);
+      this.fetchPersons(20);
     } catch (e) {
       console.error(e);
     }
@@ -49,4 +49,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "../assets/css/breakpoints";
+
+.star-wars-persons-list {
+  width: 500px;
+  @media screen and (max-width: $breakpoint-sm) {
+    width: 330px;
+  }
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <list class="star-wars-persons-list">
-    <list-item v-for="(person, idx) in people" :key="person.name">
+    <list-item v-for="(person, idx) in visiblePersons" :key="person.name">
       <template slot="prepend">
         {{ idx }}
       </template>
@@ -20,7 +20,7 @@
 import ListItem from "./List/ListItem";
 import List from "./List/List";
 import { mapGetters, mapActions } from "vuex";
-import { GET_STAR_WARS_PERSONS } from "../store/getters/types";
+import { GET_VISIBLE_STAR_WARS_PERSONS } from "../store/getters/types";
 import { FETCH_STAR_WARS_PERSONS } from "../store/actions/types";
 
 export default {
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      people: GET_STAR_WARS_PERSONS,
+      visiblePersons: GET_VISIBLE_STAR_WARS_PERSONS,
     }),
   },
   methods: {

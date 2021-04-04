@@ -33,9 +33,8 @@
 import ListItem from "./List/ListItem";
 import List from "./List/List";
 import Badge from "./Badge";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import { GET_VISIBLE_STAR_WARS_PERSONS } from "../store/getters/types";
-import { FETCH_STAR_WARS_PERSONS } from "../store/actions/types";
 import { calculateOverweight } from "../utils/BMICalculator";
 
 export default {
@@ -44,13 +43,6 @@ export default {
     List,
     ListItem,
     Badge,
-  },
-  created() {
-    try {
-      this.fetchPersons(20);
-    } catch (e) {
-      console.error(e);
-    }
   },
   computed: {
     ...mapGetters({
@@ -64,9 +56,6 @@ export default {
     calculatePersonOverweight({ height, mass }) {
       return Math.round(calculateOverweight(parseInt(height), parseInt(mass)));
     },
-    ...mapActions({
-      fetchPersons: FETCH_STAR_WARS_PERSONS,
-    }),
   },
 };
 </script>

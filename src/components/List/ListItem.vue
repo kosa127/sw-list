@@ -51,6 +51,7 @@ $sectionPadding: 0 10px;
   }
 
   .append-slot-container {
+    text-align: right;
     min-width: 30px;
     padding: $sectionPadding;
   }

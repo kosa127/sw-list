@@ -7,6 +7,7 @@
     <v-field v-model="localPerson.hair_color" label="Hair color" />
     <v-field v-model="localPerson.skin_color" label="Skin color" />
     <v-field v-model="localPerson.birth_year" label="Birth year" />
+    <v-field v-model="localPerson.gender" label="Gender" />
 
     <div class="actions-container">
       <v-button type="button" brand="secondary" @click="$emit('cancel')"

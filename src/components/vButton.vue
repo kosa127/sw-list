@@ -1,5 +1,5 @@
 <template>
-  <button class="v-button" :type="type" @click="(e) => $emit('click', e)">
+  <button class="v-button" :brand="brand" @click="(e) => $emit('click', e)">
     <slot />
   </button>
 </template>
@@ -8,13 +8,13 @@
 export default {
   name: "vButton",
   props: {
-    type: {
+    brand: {
       type: String,
       default: "default",
       validator: (val) => {
-        const types = ["default", "primary", "success", "warning", "error"];
+        const brands = ["default", "primary", "success", "warning", "error"];
 
-        return types.includes(val);
+        return brands.includes(val);
       },
     },
   },
@@ -51,19 +51,19 @@ $disabled-color: #dadada;
   text-decoration: none;
   outline: 0;
 
-  &[type="default"] {
+  &[brand="default"] {
     @include button-color($default-color, $default-hover-color);
   }
-  &[type="primary"] {
+  &[brand="primary"] {
     @include button-color($primary-color, $primary-hover-color);
   }
-  &[type="success"] {
+  &[brand="success"] {
     @include button-color($success-color, $success-hover-color);
   }
-  &[type="warning"] {
+  &[brand="warning"] {
     @include button-color($warning-color, $warning-hover-color);
   }
-  &[type="error"] {
+  &[brand="error"] {
     @include button-color($error-color, $error-hover-color);
   }
 }

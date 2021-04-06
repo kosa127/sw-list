@@ -4,8 +4,8 @@
       <template slot="prepend"> {{ idx + 1 }}. </template>
 
       <template slot="append">
-        <div class="bmi-indicator-container">
-          <div
+        <span class="bmi-indicator-container">
+          <span
             class="overweight-container"
             v-if="calculatePersonOverweight(person) > 0"
           >
@@ -15,11 +15,19 @@
               :size="15"
             />
             <span class="material-icons-outlined bmi-icon">sick</span>
-          </div>
-          <div v-else>
+          </span>
+          <span v-else>
             <span class="material-icons-outlined bmi-icon">mood</span>
-          </div>
-        </div>
+          </span>
+        </span>
+
+        <v-button
+          class="edit-btn"
+          brand="primary"
+          @click="() => handleEditBtnClick(person)"
+        >
+          Edit
+        </v-button>
       </template>
 
       <div :style="{ color: person.eye_color || 'black' }">
@@ -33,6 +41,8 @@
 import ListItem from "./List/ListItem";
 import List from "./List/List";
 import Badge from "./Badge";
+import vButton from "./vButton";
+
 import { mapGetters } from "vuex";
 import { GET_VISIBLE_STAR_WARS_PERSONS } from "../store/getters/types";
 import { calculateOverweight } from "../utils/BMICalculator";
@@ -43,6 +53,7 @@ export default {
     List,
     ListItem,
     Badge,
+    vButton,
   },
   computed: {
     ...mapGetters({
@@ -55,6 +66,9 @@ export default {
     },
     calculatePersonOverweight({ height, mass }) {
       return Math.round(calculateOverweight(parseInt(height), parseInt(mass)));
+    },
+    handleEditBtnClick({ name }) {
+      this.$router.push({ name: "Edit", params: { name } });
     },
   },
 };
@@ -69,12 +83,14 @@ export default {
     width: 330px;
   }
 
+  .edit-btn {
+    vertical-align: super;
+  }
+
   .bmi-indicator-container {
-    .overweight-badge {
-      margin-right: 5px;
-    }
     .bmi-icon {
       font-size: 25px;
+      margin: 0 5px;
     }
   }
 }

@@ -9,7 +9,9 @@
     <v-field v-model="person.birth_year" label="Birth year" />
 
     <div class="actions-container">
-      <v-button type="button" @click="$emit('cancel')">Cancel</v-button>
+      <v-button type="button" brand="secondary" @click="$emit('cancel')"
+        >Cancel</v-button
+      >
       <v-button type="button" brand="primary" @click="$emit('submit', person)"
         >Save</v-button
       >
@@ -37,6 +39,8 @@ export default {
 .person-form {
   .actions-container {
     margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>

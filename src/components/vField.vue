@@ -1,10 +1,12 @@
 <template>
-  <div class="field-container">
+  <div class="field-container" :class="containerClass">
     <div class="label">{{ label }}</div>
     <input
       class="input"
       :value="value"
       @input="(e) => $emit('input', e.target.value)"
+      @focus="focused = true"
+      @blur="focused = false"
     />
   </div>
 </template>
@@ -12,6 +14,11 @@
 <script>
 export default {
   name: "vField",
+  data() {
+    return {
+      focused: false,
+    };
+  },
   props: {
     value: {
       default: "",
@@ -20,19 +27,36 @@ export default {
       default: "",
     },
   },
+  computed: {
+    containerClass() {
+      return {
+        "field-container--focused": this.focused,
+      };
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/css/brand-colors";
+
+$padding-left: 5px;
 .field-container {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   background-color: white;
   margin-top: 15px;
   border-radius: 4px;
   height: 45px;
-  border: 1px solid rgba(0, 0, 0, 0.24);
-  padding-left: 5px;
+  padding-left: $padding-left;
+
+  &.field-container--focused {
+    border: 2px solid $primary;
+    .label {
+      color: $primary;
+    }
+  }
 
   .label {
     position: absolute;
@@ -42,10 +66,9 @@ export default {
   .input {
     margin-top: 5px;
     border: none;
-    width: 100%;
     outline: 0;
     text-decoration: none;
-    padding: 17px 0 5px;
+    padding: 16px 0 $padding-left;
   }
 }
 </style>

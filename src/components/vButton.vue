@@ -10,9 +10,9 @@ export default {
   props: {
     brand: {
       type: String,
-      default: "default",
+      default: "primary",
       validator: (val) => {
-        const brands = ["default", "primary", "success", "warning", "error"];
+        const brands = ["primary", "secondary", "success", "warning", "error"];
 
         return brands.includes(val);
       },
@@ -22,23 +22,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$default-color: #9f9f9f;
-$default-hover-color: #2c3e50;
-$primary-color: #22a7f0;
-$primary-hover-color: #0d7cb9;
-$success-color: #019875;
-$success-hover-color: #01654e;
-$warning-color: #f4b350;
-$warning-hover-color: #e9920f;
-$error-color: #d91e18;
-$error-hover-color: #941410;
-$disabled-color: #dadada;
+@import "../assets/css/brand-colors";
 
-@mixin button-color($color, $hover-color) {
-  color: $color;
+@mixin button-color($color) {
+  color: white;
+  background-color: $color;
+  $hover-color: darken($color, 10%);
   box-shadow: 0 0 0 1px $color inset;
+
   &:hover {
-    color: $hover-color;
+    background-color: $hover-color;
     box-shadow: 0 0 0 1px $hover-color inset;
   }
 }
@@ -51,20 +44,20 @@ $disabled-color: #dadada;
   text-decoration: none;
   outline: 0;
 
-  &[brand="default"] {
-    @include button-color($default-color, $default-hover-color);
-  }
   &[brand="primary"] {
-    @include button-color($primary-color, $primary-hover-color);
+    @include button-color($primary);
+  }
+  &[brand="secondary"] {
+    @include button-color($secondary);
   }
   &[brand="success"] {
-    @include button-color($success-color, $success-hover-color);
+    @include button-color($success);
   }
   &[brand="warning"] {
-    @include button-color($warning-color, $warning-hover-color);
+    @include button-color($warning);
   }
   &[brand="error"] {
-    @include button-color($error-color, $error-hover-color);
+    @include button-color($error);
   }
 }
 </style>

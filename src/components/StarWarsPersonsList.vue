@@ -12,7 +12,6 @@
             <badge
               class="overweight-badge"
               :text="getReadableOverweight(person)"
-              :size="15"
             />
             <span class="material-icons-outlined bmi-icon">sick</span>
           </span>
@@ -76,6 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/css/breakpoints";
+@import "../assets/css/brand-colors";
 
 .star-wars-persons-list {
   width: 500px;
@@ -88,9 +88,17 @@ export default {
   }
 
   .bmi-indicator-container {
+    .overweight-container {
+      .overweight-badge {
+        font-size: 13px;
+        padding: 0;
+        background-color: $primary;
+      }
+    }
     .bmi-icon {
       font-size: 25px;
       margin: 0 5px;
+      color: $primary;
     }
   }
 }

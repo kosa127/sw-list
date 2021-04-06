@@ -26,10 +26,10 @@ export default {
   .layout-body-container {
     max-height: 75vh;
     min-width: 350px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(108, 135, 223, 0.205);
     padding: 70px;
     margin: auto;
-    border-radius: 50px;
+    border-radius: 1rem;
 
     @media screen and (max-width: $breakpoint-sm) {
       padding: 30px;

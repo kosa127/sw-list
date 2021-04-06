@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$backgroundColor: rgb(255, 255, 255);
+$backgroundColor: rgb(198, 198, 219);
 $sectionPadding: 0 10px;
 
 .list-item-container {

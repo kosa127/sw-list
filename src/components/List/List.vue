@@ -14,5 +14,6 @@ export default {
 .list-container {
   max-height: 100%;
   overflow-y: scroll;
+  border-radius: 1rem;
 }
 </style>

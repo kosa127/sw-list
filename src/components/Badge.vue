@@ -1,8 +1,5 @@
 <template>
-  <span
-    class="badge-container"
-    :style="{ backgroundColor: color, fontSize: `${size}px` }"
-  >
+  <span class="badge-container">
     {{ text }}
   </span>
 </template>
@@ -15,20 +12,15 @@ export default {
       default: "",
       type: [String, Number],
     },
-    color: {
-      default: "grey",
-      type: String,
-    },
-    size: {
-      default: 14,
-      type: Number,
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/css/brand-colors";
 .badge-container {
+  color: white;
+  background-color: $primary;
   border-radius: 1em;
   padding: 0 5px;
   vertical-align: super;

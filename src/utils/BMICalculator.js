@@ -24,7 +24,7 @@ export const calculateOverweight = (height, weight) => {
 
   const upperWeight = calculateWeight(height, bounds.normal.max);
 
-  return upperWeight > weight ? upperWeight - weight : 0;
+  return weight > upperWeight ? weight - upperWeight : 0;
 };
 
 /**

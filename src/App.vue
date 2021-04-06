@@ -6,7 +6,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import { FETCH_STAR_WARS_PERSONS } from "./store/actions/types";
+import { FETCH_PERSONS } from "./store/actions/types";
 
 export default {
   name: "App",
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchPersons: FETCH_STAR_WARS_PERSONS,
+      fetchPersons: FETCH_PERSONS,
     }),
   },
 };

@@ -1,1 +1,1 @@
-export const FETCH_STAR_WARS_PERSONS = "fetchStarWarsPersons";
+export const FETCH_PERSONS = "fetchPersons";

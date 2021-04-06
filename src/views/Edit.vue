@@ -10,8 +10,7 @@
 
 <script>
 import EditPersonForm from "../components/EditPersonForm";
-import { GET_STAR_WARS_PERSONS } from "../store/getters/types";
-import { EDIT_STAR_WARS_PERSON } from "../store/mutations/types";
+import { EDIT_PERSON } from "../store/mutations/types";
 
 export default {
   name: "Edit",
@@ -28,7 +27,7 @@ export default {
   computed: {
     originalPerson() {
       const { name } = this.$route.params;
-      const persons = this.$store.getters[GET_STAR_WARS_PERSONS];
+      const { persons } = this.$store.state;
 
       return persons.find((p) => p.name === name);
     },
@@ -42,7 +41,7 @@ export default {
   methods: {
     handleSubmit(person) {
       const { name } = this.originalPerson;
-      this.$store.commit(EDIT_STAR_WARS_PERSON, { originalName: name, person });
+      this.$store.commit(EDIT_PERSON, { originalName: name, person });
       this.$router.push({ name: "Home" });
     },
     handleCancel() {

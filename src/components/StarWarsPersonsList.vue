@@ -36,7 +36,7 @@ import Badge from "./Badge";
 import vButton from "./vButton";
 
 import { mapGetters } from "vuex";
-import { GET_VISIBLE_STAR_WARS_PERSONS } from "../store/getters/types";
+import { GET_VISIBLE_PERSONS } from "../store/getters/types";
 import { calculateOverweight } from "../utils/BMICalculator";
 
 export default {
@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      visiblePersons: GET_VISIBLE_STAR_WARS_PERSONS,
+      visiblePersons: GET_VISIBLE_PERSONS,
     }),
   },
   methods: {

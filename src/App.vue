@@ -12,7 +12,7 @@ export default {
   name: "App",
   created() {
     try {
-      this.fetchPersons(20);
+      this.fetchPersons(100);
     } catch (e) {
       console.error(e);
     }

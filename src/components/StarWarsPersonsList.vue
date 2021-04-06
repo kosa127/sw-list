@@ -4,21 +4,14 @@
       <template slot="prepend"> {{ idx + 1 }}. </template>
 
       <template slot="append">
-        <span class="bmi-indicator-container">
-          <span
-            class="overweight-container"
-            v-if="calculatePersonOverweight(person) > 0"
-          >
-            <badge
-              class="overweight-badge"
-              :text="getReadableOverweight(person)"
-            />
-            <span class="material-icons-outlined bmi-icon">sick</span>
-          </span>
-          <span v-else>
-            <span class="material-icons-outlined bmi-icon">mood</span>
-          </span>
-        </span>
+        <badge
+          class="overweight-badge"
+          :text="getReadableOverweight(person)"
+          v-if="calculatePersonOverweight(person) > 0"
+        />
+        <span class="material-icons-outlined bmi-icon">{{
+          calculatePersonOverweight(person) > 0 ? "sick" : "mood"
+        }}</span>
 
         <v-button
           class="edit-btn"
@@ -29,9 +22,9 @@
         </v-button>
       </template>
 
-      <div :style="{ color: person.eye_color || 'black' }">
+      <span :style="{ color: person.eye_color || 'black' }">
         {{ person.name }}
-      </div>
+      </span>
     </list-item>
   </list>
 </template>
@@ -80,26 +73,23 @@ export default {
 .star-wars-persons-list {
   width: 500px;
   @media screen and (max-width: $breakpoint-sm) {
-    width: 330px;
+    width: 100vw;
   }
 
   .edit-btn {
     vertical-align: super;
   }
 
-  .bmi-indicator-container {
-    .overweight-container {
-      .overweight-badge {
-        font-size: 13px;
-        padding: 0;
-        background-color: $primary;
-      }
-    }
-    .bmi-icon {
-      font-size: 25px;
-      margin: 0 5px;
-      color: $primary;
-    }
+  .overweight-badge {
+    font-size: 13px;
+    padding: 0 5px;
+    height: 17px;
+    background-color: $primary;
+  }
+  .bmi-icon {
+    font-size: 25px;
+    margin: 0 5px;
+    color: $primary;
   }
 }
 </style>

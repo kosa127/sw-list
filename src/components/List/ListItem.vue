@@ -39,19 +39,22 @@ $sectionPadding: 0 10px;
   }
 
   .prepend-slot-container {
-    min-width: 30px;
     padding: $sectionPadding;
   }
 
   .content-slot-container {
     flex-grow: 1;
-    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: $sectionPadding;
   }
 
   .append-slot-container {
-    text-align: right;
-    min-width: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
     padding: $sectionPadding;
   }
 }

@@ -4,6 +4,7 @@
     <input
       class="input"
       :value="value"
+      :type="type"
       @input="(e) => $emit('input', e.target.value)"
       @focus="focused = true"
       @blur="focused = false"
@@ -25,6 +26,9 @@ export default {
     },
     label: {
       default: "",
+    },
+    type: {
+      default: "text",
     },
   },
   computed: {
@@ -68,6 +72,7 @@ $label-translate: 3px;
   }
   .input {
     margin-top: 5px;
+    width: 100%;
     border: none;
     outline: 0;
     text-decoration: none;

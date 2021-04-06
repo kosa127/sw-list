@@ -1,18 +1,21 @@
 <template>
-  <form v-if="person" class="person-form">
-    <v-field v-model="person.name" label="Name" />
-    <v-field v-model="person.mass" label="Weight" />
-    <v-field v-model="person.height" label="Height" />
-    <v-field v-model="person.eye_color" label="Eye color" />
-    <v-field v-model="person.hair_color" label="Hair color" />
-    <v-field v-model="person.skin_color" label="Skin color" />
-    <v-field v-model="person.birth_year" label="Birth year" />
+  <form v-if="localPerson" class="person-form">
+    <v-field v-model="localPerson.name" label="Name" />
+    <v-field v-model="mass" type="number" label="Weight" />
+    <v-field v-model="localPerson.height" type="number" label="Height" />
+    <v-field v-model="localPerson.eye_color" label="Eye color" />
+    <v-field v-model="localPerson.hair_color" label="Hair color" />
+    <v-field v-model="localPerson.skin_color" label="Skin color" />
+    <v-field v-model="localPerson.birth_year" label="Birth year" />
 
     <div class="actions-container">
       <v-button type="button" brand="secondary" @click="$emit('cancel')"
         >Cancel</v-button
       >
-      <v-button type="button" brand="primary" @click="$emit('submit', person)"
+      <v-button
+        type="button"
+        brand="primary"
+        @click="$emit('submit', localPerson)"
         >Save</v-button
       >
     </div>
@@ -30,6 +33,47 @@ export default {
     person: {
       default: null,
       type: Object,
+    },
+  },
+  data() {
+    return {
+      localPerson: Object.assign({}, this.person),
+    };
+  },
+  watch: {
+    person(val) {
+      this.localPerson = Object.assign({}, val);
+    },
+  },
+  computed: {
+    mass: {
+      get() {
+        const { mass } = this.localPerson;
+
+        // often case with SWAPI
+        if (!mass || mass === "unknown") return 0;
+
+        // Jabba has mass "1,358"
+        if (mass.includes(",")) return mass.split(",").join(".");
+
+        return mass;
+      },
+      set(val) {
+        this.localPerson.mass = val;
+      },
+    },
+    height: {
+      get() {
+        const { height } = this.localPerson;
+
+        // often case with SWAPI
+        if (!height || height === "unknown") return 0;
+
+        return height;
+      },
+      set(val) {
+        this.localPerson.height = val;
+      },
     },
   },
 };

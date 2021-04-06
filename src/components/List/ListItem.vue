@@ -31,7 +31,6 @@ $sectionPadding: 0 10px;
   align-items: center;
   background-color: $backgroundColor;
   box-shadow: 1px 1px 5px #000000b4;
-  cursor: pointer;
   overflow: hidden;
   font-size: 17px;
 

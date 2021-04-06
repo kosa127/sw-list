@@ -1,5 +1,8 @@
 <template>
-  <div class="centered-layout-container">
+  <div
+    class="centered-layout-container"
+    :style="{ backgroundImage: 'url(background.jpg)' }"
+  >
     <div class="layout-body-container">
       <router-view />
     </div>
@@ -20,7 +23,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  background-image: url("/background.jpg");
   background-size: cover;
 
   .layout-body-container {

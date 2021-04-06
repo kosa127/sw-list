@@ -1,4 +1,4 @@
-import { ADD_PERSONS, EDIT_PERSON } from "./types";
+import { ADD_PERSONS, EDIT_PERSON, SET_LOADING } from "./types";
 
 export default {
   [ADD_PERSONS](state, persons) {
@@ -7,5 +7,8 @@ export default {
   [EDIT_PERSON]({ persons }, { originalName, person }) {
     const idx = persons.findIndex((p) => p.name === originalName);
     persons.splice(idx, 1, person);
+  },
+  [SET_LOADING](state, value) {
+    state.loading = value;
   },
 };

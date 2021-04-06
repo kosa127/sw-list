@@ -1,5 +1,5 @@
 <template>
-  <form v-if="localPerson" class="person-form">
+  <form class="person-form">
     <v-field v-model="localPerson.name" label="Name" />
     <v-field v-model="mass" type="number" label="Weight" />
     <v-field v-model="localPerson.height" type="number" label="Height" />
@@ -39,11 +39,6 @@ export default {
     return {
       localPerson: Object.assign({}, this.person),
     };
-  },
-  watch: {
-    person(val) {
-      this.localPerson = Object.assign({}, val);
-    },
   },
   computed: {
     mass: {
